@@ -1,0 +1,79 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import biopic from './Images/fx-gs.webp';
+
+function Title() {
+  return (
+    <div>
+      <h1>DR STEPHEN NAULLS</h1>
+    </div>
+  )
+}
+
+function Biography() {
+  return (
+    <div>
+      <div>
+        <p>Dr Stephen Naulls MBBS BSc (Hons) is a newly qualified doctor graduating from Imperial College School of Medicine in the Class of 2020. He also holds a first-class Bachelor of Science degree in Neuroscience &amp; Mental Health. Stephen currently works as a junior doctor in London.</p>
+        <p>Stephen grew up on the outskirts of Grimsby and is proud of his northern roots. He's a firm believer in widening access to Higher Education – recently co-founding a campaign to increase representation of state-educated pupils within the highest levels of society. Stephen has been a guest speaker at several conferences aiming to widen participation at university.</p>
+        <p>During university, Stephen championed positive change for the mental health and wellbeing of medical students. Sitting at executive level on the British Medical Association's medical students committee as Deputy Chair, Stephen represented more than 25,000 members nationally to key stakeholders including the General Medical Council, Office for Students, and Department for Education.</p>
+      </div>
+      <div>
+        <img src={biopic} />
+      </div>
+    </div>
+  )
+}
+
+function Articles() {
+  return (
+    <div>
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6695294978828054528" height="599" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+    </div>
+  )
+}
+
+function SectionHeader(props) {
+  return (
+    <div>
+      <h2>{props.section_name}</h2>
+      <hr style={{ height: "1px", color: "black" }}></hr>
+    </div>
+  )
+}
+
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show_full: false
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Title />
+        <SectionHeader
+          section_name="BIOGRAPHY"
+        />
+        <Biography />
+        <SectionHeader
+          section_name="SOCIAL MEDIA"
+        />
+        <SectionHeader
+          section_name="ARTICLES"
+        />
+        <Articles />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Main />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
